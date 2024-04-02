@@ -1,0 +1,16 @@
+version: "3"
+services:
+    app:
+        build:
+            context: .
+            args:
+                - USERNAME=${USER}
+                - GIT_VERSION=2.44.0
+
+        command: sleep infinity
+        volumes:
+            - vscode-extensions:/root/.vscode-server/extensions
+            - ../..:/workspaces:cached
+
+volumes:
+    vscode-extensions:
